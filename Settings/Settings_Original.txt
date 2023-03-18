@@ -1,0 +1,5 @@
+Debug.Mode: true
+Output_File_Name: Bi_Test_Miniball_Board_11_Channel_15
+Input_File_Name: Miniball_Resolution_test/Bi207.txt
+Root_File_Name: Miniball_Resolution_test/bi207_SPEDEandGammaTrig60min_sum.root
+Histogram_Name: sfp_0/board_11/febex_0_11_15_cal
