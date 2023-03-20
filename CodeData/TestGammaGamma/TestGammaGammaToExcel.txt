@@ -1,0 +1,4 @@
+TestGammaGamma
+Energy Energy_Error Calculated_Area Calculated_Area_Error Numerical_Area Numerical_Area_Error Total_Peak_Area Total_Peak_Area_Error Sigma Sigma_error
+275.976 0.0567544 -610.785 58.0507 -610.785 88.6425 -610.785 88.6425 0.814178 0.0531368
+354 0.0454048 -404.54 52.3045 -404.446 92.1508 -404.446 92.1508 2 0.026264

@@ -46,13 +46,17 @@ TH1F* projectionToMatrixY(TH2F *matrix,Float_t gate1, Float_t gate2){
   
   Double_t gate1_D=(Double_t) gate1;
   Double_t gate2_D=(Double_t) gate2;
-  Int_t bin1=matrix->FindBin(gate1_D);
-  Int_t bin2=matrix->FindBin(gate2_D);
+  Int_t bin1=matrix->GetXaxis()->FindBin(gate1_D);
+  Int_t bin2=matrix->GetXaxis()->FindBin(gate2_D);
+  cout<<"Bin1:"<< bin1<<"\n";
+  cout<<"Bin2:"<< bin2<<"\n";
+  cout<<"Gate1:"<<gate1_D<<"\n";
+  cout<<"Gate2:"<<gate2_D<<"\n";
   cout<<"names"<<"\n";
   TH1D *histogramD= matrix->ProjectionY(title.Data(),bin1,bin2);
   cout<<"Copy"<<"\n";
   TH1F *histogramF;
-  histogramF=(TH1F *)histogramD->Clone("hnew");
+  histogramF=(TH1F *)histogramD->Clone();
   cout<<"Copy"<<histogramF->GetTitle()<<"\n";
   return histogramF;
 
@@ -97,7 +101,7 @@ void ReadMatrix::createHistogram(TH2F *matrix, TString axis, TString gate1Text,T
   if (axis.CompareTo("y")==0){
     cout<<"Projection y"<<"\n";
     histogramTotal=projectionToMatrixY(matrix,gate1,gate2);
-    histogram=(TH1F *)histogramTotal->Clone("hnew");
+    histogram=(TH1F *)histogramTotal->Clone();
     title=histogramTotal->GetTitle();
     title.Append("_Projection_Y");
     histogramTotal->SetNameTitle(title.Data(),title.Data());

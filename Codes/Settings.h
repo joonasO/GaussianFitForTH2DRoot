@@ -30,9 +30,7 @@ public:
   TString outputFileName(){
     return fOutputFileName;
   };
-  TString outputRootFileName(){
-    return fOutputRootFileName;
-  };
+  
   std::vector<TString> inputFileName(){
     return fInputFileName;
   };
@@ -42,8 +40,11 @@ public:
   std::vector<TString> matrixHistogramName(){
     return fMatrixHistogramFileName;
   };
-  TString rootFileName(){
-    return fRootFileName;
+  TString inputRootFileName(){
+    return fInputRootFileName;
+  };
+   TString outputRootFileName(){
+    return fOutputRootFileName;
   };
   std::vector<TString> histogramFileName(){
     return fHistogramFileName;
@@ -61,7 +62,7 @@ protected:
   TString fSettingsFileName;
   TString fOutputFileName;
   TString fOutputRootFileName;
-  TString fRootFileName;
+  TString fInputRootFileName;
   std::vector<TString> fMatrixGateFileName;
   std::vector<TString> fMatrixHistogramFileName;
   std::vector<TString>  fMatrixPeakFileName;

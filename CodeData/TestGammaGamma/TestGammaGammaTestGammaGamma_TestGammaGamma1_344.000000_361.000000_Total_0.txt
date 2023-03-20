@@ -1,0 +1,14 @@
+TestGammaGamma_TestGammaGamma1_344.000000_361.000000_Total_0
+../CodeData/TestGammaGamma/TestGammaGammaTestGammaGamma_TestGammaGamma1_344.000000_361.000000_Total_0.txt
+Chi2:372.319
+Constant: -40.347  Error: 5.18964
+Mean: 354  Error: 0.0454048
+Sigma: 2  Error: 0.026264
+FWHM: 4.70964  Error: 0.061847
+Peak calculated integral:-404.54 Error: 52.3045
+Peak plus background numerical integral: -3297.22 Error: 57.4213
+Background integral: -2892.77 Error: 72.0733
+Peak integral: -404.446 Error: 92.1508
+Total peak integral: -404.446 Error: 92.1508
+Total function integral: -3297.22 Error: 57.4213
+Histogram integral -3710.13

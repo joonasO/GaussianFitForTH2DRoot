@@ -52,17 +52,18 @@ void Settings::readSettings(){
   
   fOutputFileName = readSettingsFile("Output_File_Name:");
   //fOutputRootFileName = readSettingsFile("Output_Root_File_Name:");
-  fRootFileName= readSettingsFile("Root_File_Name:");
+  fInputRootFileName= readSettingsFile("Input_Root_File_Name:");
+  fOutputRootFileName= readSettingsFile("Output_Root_File_Name:");
   fMatrixHistogramFileName=readSettingsFileVector("Matrix_Histogram_Name:");
   fMatrixGateFileName= readSettingsFileVector("Matrix_Gate_File:");
   fMatrixPeakFileName= readSettingsFileVector("Matrix_Peak_File:");
   fInputFileName= readSettingsFileVector("Input_File_Name:");
   fHistogramFileName= readSettingsFileVector("Histogram_Name:");
-  globalRootFileName=fRootFileName;
+  globalRootFileName=fInputRootFileName;
   globalHistogramName=fHistogramFileName;
   if(fDebugOpt)
     cout << " ... done!" <<endl<<"settingsFileName"<<fSettingsFileName.Data()<< endl;
-    cout << " ... done!" <<endl<<"roofFileName"<<fRootFileName.Data()<< endl;
+    cout << " ... done!" <<endl<<"roofFileName"<<fInputRootFileName.Data()<< endl;
     cout << " ... done!" <<endl<<"globalroofFileName"<<globalRootFileName.Data()<< endl;
 
 

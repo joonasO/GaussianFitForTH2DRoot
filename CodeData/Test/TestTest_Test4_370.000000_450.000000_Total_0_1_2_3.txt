@@ -1,0 +1,14 @@
+Test_Test4_370.000000_450.000000_Total_0_1_2_3
+../CodeData/Test/TestTest_Test4_370.000000_450.000000_Total_0_1_2_3.txt
+Chi2:134.169
+Constant: 13.353  Error: 2.80969
+Mean: 414.523  Error: 0.201698
+Sigma: 1.03749  Error: 0.128476
+FWHM: 2.4431  Error: 0.302537
+Peak calculated integral:34.726 Error: 8.47835
+Peak plus background numerical integral: 49.4791 Error: 9.83159
+Background integral: 14.7531 Error: 8.405
+Peak integral: 34.726 Error: 12.9346
+Total peak integral: 42.4828 Error: 12.7132
+Total function integral: 57.2359 Error: 9.53848
+Histogram integral 100.84
