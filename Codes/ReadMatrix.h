@@ -9,5 +9,6 @@ public:
    TH1F *histogramTotal;
    TH1F *backgroundHistogram1;
    TH1F *backgroundHistogram2;
+   TH1F *substractedHistogram;
    TH1F *histogram;
 };

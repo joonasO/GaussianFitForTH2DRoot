@@ -77,6 +77,7 @@ void gaussianFitterMatrix(TString matrixHistogramName,TString matrixGateFileName
 		FitGaussians fit;
 		fit.mainFitter(matrixHistogram.histogram,nTuple.peakEnergies(), nTuple.energiesLow(), nTuple.energiesHigh(),nTuple.peakWidths(),outputFileName);
 		output.initialiseOutput(outputFileName);
+		output.writeRootOutputFile(outputRootFile,matrixHistogram.histogramTotal,matrixHistogram.backgroundHistogram1,matrixHistogram.backgroundHistogram2,matrixHistogram.substractedHistogram,matrixHistogram.histogram);
 		output.readFunction(matrixHistogram.histogram,nTuple.energiesLow(),nTuple.energiesHigh(),fit.fGaussiansMatrix,fit.fGaussianPlusBGs,fit.fBackgrounds,fit.fFitParametersVector,outputFileName,Debug);
 		figure.makeToFigure(matrixHistogram.histogram,outputFileName,fit.fGaussiansPlusBackgroundNames,nTuple.energiesLow(), nTuple.energiesHigh(),fit.fBackgrounds,fit.fGaussiansMatrix,fit.fGaussianPlusBGs,fit.fFitParametersVector);
 
@@ -132,7 +133,7 @@ int main (){
 	cout<<endl<<"How many matrix file: "<<matrixGateFileName.size()<<endl;
 	cout<<endl<<"How many Gatematrix file: "<<matrixPeakFileName.size()<<endl;
 	if (matrixGateFileName.size()==matrixPeakFileName.size()){
-		for (Int_t i = 0; i < histogramFileName.size(); i++) {
+		for (Int_t i = 0; i < matrixHistogramName.size(); i++) {
 			gaussianFitterMatrix(matrixHistogramName[i],matrixGateFileName[i],outputFileName,matrixPeakFileName[i],inputRootFileName,outputRootFile);
 		}
 	}

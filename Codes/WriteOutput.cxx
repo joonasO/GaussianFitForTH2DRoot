@@ -19,23 +19,47 @@ void WriteOutput::initialiseOutput(TString output){
   dir.ReplaceAll("/./","/");
   TString toSystem="mkdir ";
   toSystem=toSystem.Append(dir);
-  toSystem=toSystem.Append("../CodeData/");
+  toSystem=toSystem.Append("../Output/");
   system(toSystem.Data());
   toSystem=toSystem.Append(output);
   toSystem=toSystem.Append("/");
   system(toSystem.Data());
+  TString rootFolder=toSystem.Append("RootFiles/");
+  system(rootFolder.Data());
+  wRootOutputPath=rootFolder;
+  TString fitDataFolder=toSystem.Append("Fits/");
+  system(fitDataFolder.Data());
   TString toExcelFile;
-  toExcelFile="../CodeData/";
+  toExcelFile="../Output/Fits/";
   toExcelFile=toExcelFile.Append(output);
   toExcelFile=toExcelFile.Append("/");
   toExcelFile=toExcelFile.Append(output);
-	wOutputPath=toExcelFile.Copy();
+  wOutputPath=toExcelFile.Copy();
   toExcelFile.Append("ToExcel.txt");
   toExcel.open(Form("%s",toExcelFile.Data()));
   toExcel<<output.Data()<<endl;
   toExcel<< "Energy"<<" "<< "Energy_Error"<<" "<< "Calculated_Area" << " "<<"Calculated_Area_Error" <<" "<<"Numerical_Area"<<  " "<<"Numerical_Area_Error"<<  " "<<"Total_Peak_Area"<<  " "<<"Total_Peak_Area_Error"<<" Sigma"<<" Sigma_error"<<endl;
   toExcel.close();
 };
+
+void WriteOutput::writeRootOutputFile(TFile *file, TH1F *Raw, TH1F *Background1, TH1F *Background2, TH1F *substractedSpectrum, TH1F *BackgroundSubstactedTotal){
+	TString title="";
+	title.Append(Raw->GetTitle());
+	file->WriteObject(Raw, title.Data());
+	title="";
+	title.Append(Background1->GetTitle());
+	file->WriteObject(Background1, title.Data());
+	title="";
+	title.Append(Background2->GetTitle());
+	file->WriteObject(Background2, title.Data());
+	title="";
+	title.Append(substractedSpectrum->GetTitle());
+	file->WriteObject(substractedSpectrum, title.Data());
+	title="";
+	title.Append(BackgroundSubstactedTotal->GetTitle());
+	file->WriteObject(BackgroundSubstactedTotal, title.Data());
+};
+
 
 void WriteOutput::readFunction(TH1F* h1, std::vector<Float_t> lows,std::vector<Float_t> highs,std::vector<std::vector<TF1 *>> gaussianFunctions , std::vector<TF1 *> gaussianPlusBackground,std::vector<TF1 *> backgrounds,  std::vector<TFitResultPtr> fitParameters,TString output,Bool_t Debug){
 	Int_t j=0;

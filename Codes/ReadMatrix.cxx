@@ -38,10 +38,10 @@ TH1F* projectionToMatrixY(TH2F *matrix,Float_t gate1, Float_t gate2){
   title.Append(titleMatrix);
   cout<<"Title"<<"\n";
   title.Append("_");
-  number.Form("%d",gate1); 
+  number.Form("%0.f",gate1); 
   title.Append(number);
   title.Append("_");
-  number.Form("%d",gate2);
+  number.Form("%0.f",gate2);
   title.Append(number);
   
   Double_t gate1_D=(Double_t) gate1;
@@ -93,6 +93,7 @@ void ReadMatrix::createHistogram(TH2F *matrix, TString axis, TString gate1Text,T
       backgroundHistogram2=projectionToMatrixX(matrix,background3,background4 );
       factor1=(Double_t)(-((background2-background1)/((background2-background1)+(background4-background3)))*(gate2-gate1)/(background2-background1));
       factor2=(Double_t)(-((background4-background3)/((background2-background1)+(background4-background3)))*(gate2-gate1)/(background2-background1));
+
       histogram->Add(backgroundHistogram1,factor1);
       histogram->Add(backgroundHistogram2,factor2);
     }
@@ -103,7 +104,12 @@ void ReadMatrix::createHistogram(TH2F *matrix, TString axis, TString gate1Text,T
     histogramTotal=projectionToMatrixY(matrix,gate1,gate2);
     histogram=(TH1F *)histogramTotal->Clone();
     title=histogramTotal->GetTitle();
-    title.Append("_Projection_Y");
+    title.Append("_Projection_Y_");
+    number.Form("%0.f",gate1);
+    title.Append(number);
+    title.Append("_");
+    number.Form("%0.f",gate2);
+    title.Append(number);
     histogramTotal->SetNameTitle(title.Data(),title.Data());
     if (background1==-1){
 
@@ -117,46 +123,62 @@ void ReadMatrix::createHistogram(TH2F *matrix, TString axis, TString gate1Text,T
       backgroundHistogram1=projectionToMatrixY(matrix,background1,background2 );
       title=backgroundHistogram1->GetTitle();
       title.Append("_Background_");
-      number.Form("%d",background1);
+      number.Form("%0.f",background1);
+      cout<<"Background1:"<<number.Data()<<"\n";
       title.Append(number);
       title.Append("_");
-      number.Form("%d",background2);
+      number.Form("%0.f",background2);
       title.Append(number);
       backgroundHistogram1->SetNameTitle(title.Data(),title.Data());
-
-
       backgroundHistogram2=projectionToMatrixY(matrix,background3,background4 );
       title=backgroundHistogram2->GetTitle();
       title.Append("_Background_");
-      number.Form("%d",background3);
+      number.Form("%.0f",background3);
       title.Append(number);
       title.Append("_");
-      number.Form("%d",background4);
+      number.Form("%0.f",background4);
       title.Append(number);
       backgroundHistogram2->SetNameTitle(title.Data(),title.Data());
-      factor1=(Double_t)(-((background2-background1)/((background2-background1)+(background4-background3)))*(gate2-gate1)/(background2-background1));
-      factor2=(Double_t)(-((background4-background3)/((background2-background1)+(background4-background3)))*(gate2-gate1)/(background2-background1));
+      factor1=(Double_t)(-((background2-background1)/((background2-background1)+(background4-background3)))*(gate2-gate1)/((background2-background1)+(background4-background3)));
+      factor2=(Double_t)(-((background4-background3)/((background2-background1)+(background4-background3)))*(gate2-gate1)/((background2-background1)+(background4-background3)));
       histogram->Add(backgroundHistogram1,factor1);
       histogram->Add(backgroundHistogram2,factor2);
-      histogram->GetTitle();
+      substractedHistogram=(TH1F *)histogram->Clone();
+      substractedHistogram->Add(histogramTotal,-1);
+      substractedHistogram->Scale(-1);
+      title="Substracted_Spectrum_";
+      number.Form("%0.f",background1);
+      title.Append(number);
+      title.Append("_");
+      number.Form("%0.f",background2);
+      title.Append(number);
+      title.Append("_");
+      number.Form("%0.f",background3);
+      title.Append(number);
+      title.Append("_");
+      number.Form("%0.f",background4);
+      title.Append(number);
+      substractedHistogram->SetNameTitle(title.Data(),title.Data());
+
+      title=histogram->GetTitle();
       title.Append("_Total_Gated_");
-      //number.Form("%d",gate1);
-      //title.Append(number);
-      //title.Append("_");
-      //number.Form("%d",gate2);
-      //title.Append(number);
-      //title.Append("_");
+      number.Form("%0.f",gate1);
+      title.Append(number);
+      title.Append("_");
+      number.Form("%0.f",gate2);
+      title.Append(number);
+      title.Append("_");
       title.Append("_BgSubs_");
-      number.Form("%d",background1);
+      number.Form("%0.f",background1);
       title.Append(number);
       title.Append("_");
-      number.Form("%d",background2);
+      number.Form("%0.f",background2);
       title.Append(number);
       title.Append("_");
-      number.Form("%d",background3);
+      number.Form("%0.f",background3);
       title.Append(number);
       title.Append("_");
-      number.Form("%d",background4);
+      number.Form("%0.f",background4);
       title.Append(number);
       histogram->SetNameTitle(title.Data(),title.Data());
     }
