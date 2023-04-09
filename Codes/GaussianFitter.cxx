@@ -68,15 +68,15 @@ void gaussianFitterMatrix(TString matrixHistogramName,TString matrixGateFileName
 	WriteOutput output;
 	DrawFigure figure;
 	ReadMatrix matrixHistogram;
+	output.initialiseOutput(outputFileName);
 	for (Int_t i = 0; i < file.gate1Vector.size(); i++) {
-		
+		output.initialiseExcelOutput(outputFileName,file.gate1Vector[i],file.gate2Vector[i]);
 		matrixHistogram.createHistogram(file.matrix,file.gateOnAxis[i],file.gate1Vector[i],file.gate2Vector[i],file.backgroundGate1Vector[i],file.backgroundGate2Vector[i],file.backgroundGate3Vector[i],file.backgroundGate4Vector[i]);
 		outputRootFile->WriteObject(matrixHistogram.histogramTotal, "Total");
 		std::cout << "Input Create Histograms" << '\n';
 		nTuple.readOutNTuple(file.peakData);
 		FitGaussians fit;
 		fit.mainFitter(matrixHistogram.histogram,nTuple.peakEnergies(), nTuple.energiesLow(), nTuple.energiesHigh(),nTuple.peakWidths(),outputFileName);
-		output.initialiseOutput(outputFileName);
 		output.writeRootOutputFile(outputRootFile,matrixHistogram.histogramTotal,matrixHistogram.backgroundHistogram1,matrixHistogram.backgroundHistogram2,matrixHistogram.substractedHistogram,matrixHistogram.histogram);
 		output.readFunction(matrixHistogram.histogram,nTuple.energiesLow(),nTuple.energiesHigh(),fit.fGaussiansMatrix,fit.fGaussianPlusBGs,fit.fBackgrounds,fit.fFitParametersVector,outputFileName,Debug);
 		figure.makeToFigure(matrixHistogram.histogram,outputFileName,fit.fGaussiansPlusBackgroundNames,nTuple.energiesLow(), nTuple.energiesHigh(),fit.fBackgrounds,fit.fGaussiansMatrix,fit.fGaussianPlusBGs,fit.fFitParametersVector);
@@ -117,7 +117,9 @@ int main (){
 		cout<<endl<<"Output file name: "<<outputFileName<<endl;
 		cout<<endl<<"Root file name: "<<inputRootFileName<<endl;
 	}
-	TString rootOutputPathRelative="../OutputRoot/";
+	TString rootOutputPathRelative="../Output/";
+	rootOutputPathRelative.Append(outputFileName);
+	rootOutputPathRelative.Append("/");
 	rootOutputPathRelative.Append(outputRootFileName.Data());
 	TFile *outputRootFile = TFile::Open(rootOutputPathRelative.Data(),"RECREATE");
 	std::cout << rootOutputPathRelative.Data() << '\n';

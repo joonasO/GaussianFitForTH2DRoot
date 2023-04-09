@@ -1,11 +1,7 @@
 Debug.Mode: true
-Output_File_Name: TestGammaGamma
-Input_Root_File_Name: GammaGammaTest/Final_Gamma_Gamma_Recoil_04_11_2020.root
-Output_Root_File_Name: TestGammaGamma.root
-Histogram_Name: Background_220_256
+Output_File_Name: GammaGamma_Distance_3um
+Input_Root_File_Name: GammaPb-190/Recoil_GG_3um.root
+Output_Root_File_Name: Pb-190_3um.root
 Matrix_Histogram_Name: Gamma-GammaMatrix
-Matrix_Peak_File: GammaGammaTest/MatrixGate/Gate_319_324_Bg_310_313_325_328.txt
-Matrix_Gate_File: GammaGammaTest/MatrixGate/GateFile_319_324_Bg_310_313_325_328.txt
-Matrix_Histogram_Name: Gamma-GammaMatrix
-Matrix_Peak_File: GammaGammaTest/MatrixGate/Gate_658_666_Bg_647_650_680_687.txt
-Matrix_Gate_File: GammaGammaTest/MatrixGate/GateFile_658_666_Bg_647_650_680_687.txt
+Matrix_Peak_File: GammaPb-190/MatrixGate/Gate_508.5_514.5_Bg_444_451_467_476.txt
+Matrix_Gate_File: GammaPb-190/MatrixGate/GateFile_508.5_514.5_Bg_444_451_467_476.txt

@@ -66,6 +66,7 @@
         "functional": "cpp",
         "iterator": "cpp",
         "utility": "cpp",
-        "GermaniumGammaAnalysisObjectOrient_WithWeightedBackground.C": "cpp"
+        "GermaniumGammaAnalysisObjectOrient_WithWeightedBackground.C": "cpp",
+        "GermaniumGammaForTwoDataSet.C": "cpp"
     }
 }

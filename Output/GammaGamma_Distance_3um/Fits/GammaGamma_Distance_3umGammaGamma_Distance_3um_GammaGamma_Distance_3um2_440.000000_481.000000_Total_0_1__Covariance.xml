@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<root setup="2xoo" ref="null" created="2023-03-26 14:58:42" modified="2023-03-26 14:58:42" uuid="51491b9c-cbde-11ed-9fdb-a234010abeef" version="3" file_version="62610">
+  <XmlKey name="TMatrixTSym&lt;double&gt;" cycle="1" created="2023-03-26 14:58:42">
+    <Object class="TMatrixTSym_double_">
+      <TMatrixTBase_double_ version="5">
+        <TObject fUniqueID="0" fBits="0"/>
+        <fNrows v="9"/>
+        <fNcols v="9"/>
+        <fRowLwb v="0"/>
+        <fColLwb v="0"/>
+        <fNelems v="81"/>
+        <fNrowIndex v="0"/>
+        <fTol v="2.220446e-16"/>
+      </TMatrixTBase_double_>
+      <Array>
+        <Double_t v="0.000000e+00" cnt="9"/>
+      </Array>
+      <Array>
+        <Double_t v="3.337670e+01"/>
+        <Double_t v="-7.361623e-02"/>
+        <Double_t v="4.605998e-02"/>
+        <Double_t v="-4.894420e-03"/>
+        <Double_t v="1.518185e-02"/>
+        <Double_t v="-3.532472e-03"/>
+        <Double_t v="-4.872085e-02"/>
+        <Double_t v="7.870730e-02"/>
+      </Array>
+      <Array>
+        <Double_t v="1.625549e-04"/>
+        <Double_t v="-1.948038e-04"/>
+        <Double_t v="3.241884e-05"/>
+        <Double_t v="-1.054553e-05"/>
+        <Double_t v="-2.891022e-05"/>
+        <Double_t v="1.106485e-04"/>
+        <Double_t v="-1.829213e-04"/>
+      </Array>
+      <Array>
+        <Double_t v="1.379050e+01"/>
+        <Double_t v="-7.672429e-01"/>
+        <Double_t v="-9.189543e-01"/>
+        <Double_t v="-8.651567e-01"/>
+        <Double_t v="4.642988e-02"/>
+        <Double_t v="9.299415e-02"/>
+      </Array>
+      <Array>
+        <Double_t v="1.450509e-01"/>
+        <Double_t v="7.371821e-02"/>
+        <Double_t v="4.753106e-02"/>
+        <Double_t v="-6.788637e-03"/>
+        <Double_t v="-8.993569e-03"/>
+      </Array>
+      <Array>
+        <Double_t v="1.337404e-01"/>
+        <Double_t v="-6.226293e-02"/>
+        <Double_t v="1.033852e-02"/>
+        <Double_t v="9.351081e-03"/>
+      </Array>
+      <Array>
+        <Double_t v="1.080458e+01"/>
+        <Double_t v="-8.939910e-03"/>
+        <Double_t v="-3.581161e-01"/>
+      </Array>
+      <Array>
+        <Double_t v="3.818620e-02"/>
+        <Double_t v="3.102521e-03"/>
+      </Array>
+      <Array>
+        <Double_t v="3.171719e-02"/>
+      </Array>
+    </Object>
+  </XmlKey>
+  <StreamerInfos>
+    <TStreamerInfo name="TMatrixTBase&lt;double&gt;" title="" v="9" classversion="5" canoptimize="true" checksum="-1961180639">
+      <TStreamerBase name="TObject" title="Basic ROOT object" v="3" type="66" typename="BASE" size="16" baseversion="1" basechecksum="-1877229523"/>
+      <TStreamerBasicType name="fNrows" title="number of rows" v="2" type="3" typename="int" size="4"/>
+      <TStreamerBasicType name="fNcols" title="number of columns" v="2" type="3" typename="int" size="4"/>
+      <TStreamerBasicType name="fRowLwb" title="lower bound of the row index" v="2" type="3" typename="int" size="4"/>
+      <TStreamerBasicType name="fColLwb" title="lower bound of the col index" v="2" type="3" typename="int" size="4"/>
+      <TStreamerBasicType name="fNelems" title="number of elements in matrix" v="2" type="3" typename="int" size="4"/>
+      <TStreamerBasicType name="fNrowIndex" title="length of row index array (= fNrows+1) wich is only used for sparse matrices" v="2" type="3" typename="int" size="4"/>
+      <TStreamerBasicType name="fTol" title="sqrt(epsilon); epsilon is smallest number number so that  1+epsilon &gt; 1" v="2" type="8" typename="double" size="8"/>
+    </TStreamerInfo>
+  </StreamerInfos>
+</root>

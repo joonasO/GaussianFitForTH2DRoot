@@ -13,7 +13,7 @@ Double_t WriteOutput::binning(TH1F *h1){
 };
 
 void WriteOutput::initialiseOutput(TString output){
-	ofstream toExcel;
+
 	TString dir = gSystem->UnixPathName(__FILE__);
 	dir.ReplaceAll("WriteOutput.cxx","");
   dir.ReplaceAll("/./","/");
@@ -23,23 +23,37 @@ void WriteOutput::initialiseOutput(TString output){
   system(toSystem.Data());
   toSystem=toSystem.Append(output);
   toSystem=toSystem.Append("/");
+  cout<<"OutputFolder:"<<toSystem.Data()<<"\n";
   system(toSystem.Data());
-  TString rootFolder=toSystem.Append("RootFiles/");
+
+  TString rootFolder=toSystem.Copy();
+  rootFolder=rootFolder.Append("RootFiles/");
   system(rootFolder.Data());
   wRootOutputPath=rootFolder;
-  TString fitDataFolder=toSystem.Append("Fits/");
+  TString fitDataFolder=toSystem.Copy();
+  fitDataFolder=fitDataFolder.Append("Fits/");
   system(fitDataFolder.Data());
+};
+void WriteOutput::initialiseExcelOutput(TString output,TString gate1, TString gate2){
+	ofstream toExcel;
   TString toExcelFile;
-  toExcelFile="../Output/Fits/";
+  toExcelFile="../Output/";
   toExcelFile=toExcelFile.Append(output);
-  toExcelFile=toExcelFile.Append("/");
+  toExcelFile=toExcelFile.Append("/Fits/");
   toExcelFile=toExcelFile.Append(output);
   wOutputPath=toExcelFile.Copy();
-  toExcelFile.Append("ToExcel.txt");
+  toExcelFile.Append("ToExcel");
+  toExcelFile.Append("_Gate_");
+  toExcelFile.Append(gate1);
+  toExcelFile.Append("_");
+  toExcelFile.Append(gate2);
+  toExcelFile.Append(".txt");
   toExcel.open(Form("%s",toExcelFile.Data()));
   toExcel<<output.Data()<<endl;
   toExcel<< "Energy"<<" "<< "Energy_Error"<<" "<< "Calculated_Area" << " "<<"Calculated_Area_Error" <<" "<<"Numerical_Area"<<  " "<<"Numerical_Area_Error"<<  " "<<"Total_Peak_Area"<<  " "<<"Total_Peak_Area_Error"<<" Sigma"<<" Sigma_error"<<endl;
   toExcel.close();
+  wGate1=gate1;
+  wGate2=gate2;
 };
 
 void WriteOutput::writeRootOutputFile(TFile *file, TH1F *Raw, TH1F *Background1, TH1F *Background2, TH1F *substractedSpectrum, TH1F *BackgroundSubstactedTotal){
@@ -148,7 +162,7 @@ void WriteOutput::calculateArea(TH1F* h1 ,TFitResultPtr fitParameters, Float_t l
 			covarianceMatrixSingle(j,1)=covarianceMatrix(2,i*3+j+1);
 
 		}
-	if(Debug){
+	if(false){
 		cout<< "Fit Parameters:"<<endl;
 		fitParameters->Print("V");
     cout<< "Covariance Matrix For Background:"<<endl;
@@ -161,17 +175,17 @@ void WriteOutput::calculateArea(TH1F* h1 ,TFitResultPtr fitParameters, Float_t l
 	}
 		for (Int_t j=0; j<5;j++){
 		for (Int_t k=0; k<5;k++){
-			if(Debug){
+			if(false){
 
 
 				cout<<covarianceMatrixSingle(k,j)<<", ";
 			}
 		}
-		if(Debug){
+		if(false){
 			cout<<endl;
 		}
 	}
-			if(!Debug){
+			if(false){
 				std::cout << "Parameters To Check:" << '\n';
 				std::cout << "Background Constant: " << gaussianPlusBG->GetParameter(1)<<'\n';
 				std::cout << "Background Linear: " << gaussianPlusBG->GetParameter(2)<<'\n';
@@ -257,7 +271,7 @@ void WriteOutput::doRootFile(TString title,TString gate1,TString gate2,TString b
 void WriteOutput::doOutput(TString title,Double_t peakCalculatedIntegral,Double_t peakCalculatedIntegralError,Double_t peakNumericalIntegral,Double_t peakNumericalIntegralError,Double_t totalPeakArea,Double_t totalPeakAreaError,Double_t peakPlusBackgroundIntegral,Double_t peakPlusBackgroundIntegralError,Double_t histogramIntegral,Double_t backgroundIntegral,Double_t backgroundIntegralError,Double_t constant,Double_t constant_error,Double_t mean,Double_t mean_error,Double_t sigma,Double_t sigma_error,Double_t fwhm,Double_t fwhm_error,Double_t polynom_constant,Double_t polynom_linear,TString output,TFitResultPtr fitParameters,Bool_t Debug){
 	Double_t peakArea=peakNumericalIntegral-backgroundIntegral;
   Double_t peakAreaError=TMath::Power(TMath::Power(peakNumericalIntegralError,2)+TMath::Power(backgroundIntegralError,2),0.5);
-	if(Debug){
+	if(false){
 		cout << "Peak calculated integral+-Error " << peakCalculatedIntegral<<"+-"<<peakCalculatedIntegralError<< endl;
   	cout << "Peak plus background numerical integral+-Error " << peakNumericalIntegral<<"+-"<<peakNumericalIntegralError<< endl;
   	cout << "Background integral +-Error" << backgroundIntegral <<"+-"<<backgroundIntegralError<< endl;
@@ -299,7 +313,14 @@ void WriteOutput::doOutput(TString title,Double_t peakCalculatedIntegral,Double_
 		myfile << "Histogram integral " << histogramIntegral<< endl;
 		myfile.close();
 		TString toExcelFile=wOutputPath.Copy();
-		toExcelFile.Append("ToExcel.txt");
+		
+		toExcelFile.Append("ToExcel");
+		toExcelFile.Append("_Gate_");
+		TString number;
+		toExcelFile.Append(wGate1);
+		toExcelFile.Append("_");
+		toExcelFile.Append(wGate2);
+		toExcelFile.Append(".txt");
 		ofstream toExcel;
 		toExcel.open(Form("%s",toExcelFile.Data()),std::ios_base::app);
 	  toExcel<< mean<<" "<< mean_error<<" "<< peakCalculatedIntegral << " "<<peakCalculatedIntegralError <<" "<<peakArea<<  " "<<peakAreaError<< " "<<totalPeakArea<<" "<<totalPeakAreaError<<" "<<sigma<<" "<<sigma_error<<endl;

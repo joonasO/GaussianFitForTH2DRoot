@@ -13,7 +13,10 @@ public:
   void doOutput(TString title,Double_t peakCalculatedIntegral,Double_t peakCalculatedIntegralError,Double_t peakNumericalIntegral,Double_t peakNumericalIntegralError,Double_t totalPeakArea,Double_t totalPeakAreaError,Double_t peakPlusBackgroundIntegral,Double_t peakPlusBackgroundIntegralError,Double_t histogramIntegral,Double_t backgroundIntegral,Double_t backgroundIntegralError,Double_t constant,Double_t constant_error,Double_t mean,Double_t mean_error,Double_t sigma,Double_t sigma_error,Double_t fwhm,Double_t fwhm_error,Double_t polynom_constant,Double_t polynom_linear,TString output,TFitResultPtr fitParameters,Bool_t Debug);
   void doRootFile(TString title,TString gate1,TString gate2,TString backgroundGate1, TString backgroundGate2,TString backgroundGate3, TString backgroundGate4, TH1F* histogram,TH1F* histogramTotal,TH1F* histogramBackground1,TH1F* histogramBackground2 );
   void writeRootOutputFile(TFile *file, TH1F *Raw, TH1F *Background1, TH1F *Background2,TH1F *substractedSpectrum, TH1F *BackgroundSubstactedTotal);
+  void initialiseExcelOutput(TString output,TString gate1, TString gate2);
 private:
+  TString wGate1;
+  TString wGate2;
   TString wOutputPath;
   TString wRootOutputPath;
 };

@@ -1,0 +1,11 @@
+Debug.Mode: true
+Output_File_Name: TestGammaGamma
+Input_Root_File_Name: GammaGammaTest/Final_Gamma_Gamma_Recoil_04_11_2020.root
+Output_Root_File_Name: TestGammaGamma.root
+Histogram_Name: Background_220_256
+Matrix_Histogram_Name: Gamma-GammaMatrix
+Matrix_Peak_File: GammaGammaTest/MatrixGate/Gate_319_324_Bg_310_313_325_328.txt
+Matrix_Gate_File: GammaGammaTest/MatrixGate/GateFile_319_324_Bg_310_313_325_328.txt
+Matrix_Histogram_Name: Gamma-GammaMatrix
+Matrix_Peak_File: GammaGammaTest/MatrixGate/Gate_658_666_Bg_647_650_680_687.txt
+Matrix_Gate_File: GammaGammaTest/MatrixGate/GateFile_658_666_Bg_647_650_680_687.txt

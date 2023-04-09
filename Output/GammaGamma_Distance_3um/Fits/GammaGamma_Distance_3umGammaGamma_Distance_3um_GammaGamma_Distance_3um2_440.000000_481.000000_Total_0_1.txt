@@ -1,0 +1,14 @@
+GammaGamma_Distance_3um_GammaGamma_Distance_3um2_440.000000_481.000000_Total_0_1
+../Output/GammaGamma_Distance_3um/Fits/GammaGamma_Distance_3umGammaGamma_Distance_3um_GammaGamma_Distance_3um2_440.000000_481.000000_Total_0_1.txt
+Chi2:94.682
+Constant: 28.6813  Error: 2.68473
+Mean: 459.989  Error: 2.56338
+Sigma: 1.95  Error: 1.03431
+FWHM: 4.5919  Error: 2.43561
+Peak calculated integral:140.192 Error: 75.5091
+Peak plus background numerical integral: 185.221 Error: 14.5265
+Background integral: 45.0286 Error: 8.94276
+Peak integral: 140.192 Error: 17.0585
+Total peak integral: 154.993 Error: 24.0525
+Total function integral: 200.022 Error: 22.3283
+Histogram integral 294.071

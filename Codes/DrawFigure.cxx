@@ -42,9 +42,9 @@ void DrawFigure::figureMain(TH1F *h1,TString output,TString functionName,Float_t
 	TString title;
   c->Update();
   title=h1->GetTitle();
-  TString namepicture="../CodeData/";
+  TString namepicture="../Output/";
   namepicture= namepicture.Append(output);
-  namepicture= namepicture.Append("/");
+  namepicture= namepicture.Append("/Fits/");
   namepicture= namepicture.Append(output);
   namepicture= namepicture.Append("_");
   namepicture= namepicture.Append(functionName);
@@ -72,9 +72,9 @@ void DrawFigure::figureMain(TH1F *h1,TString output,TString functionName,Float_t
 
   c1->Update();
   title=h1->GetTitle();
-  namepicture="../CodeData/";
+  namepicture="../Output/";
   namepicture= namepicture.Append(output);
-  namepicture= namepicture.Append("/");
+  namepicture= namepicture.Append("/Fits/");
   namepicture= namepicture.Append(output);
   namepicture= namepicture.Append("_");
   namepicture= namepicture.Append(functionName);

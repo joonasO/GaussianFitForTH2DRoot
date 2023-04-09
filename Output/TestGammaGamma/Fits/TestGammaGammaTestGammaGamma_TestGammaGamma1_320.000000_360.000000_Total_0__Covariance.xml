@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<root setup="2xoo" ref="null" created="2023-03-25 06:58:16" modified="2023-03-25 06:58:16" uuid="6ae1bdfc-cada-11ed-bea7-a234010abeef" version="3" file_version="62610">
+  <XmlKey name="TMatrixTSym&lt;double&gt;" cycle="1" created="2023-03-25 06:58:16">
+    <Object class="TMatrixTSym_double_">
+      <TMatrixTBase_double_ version="5">
+        <TObject fUniqueID="0" fBits="0"/>
+        <fNrows v="6"/>
+        <fNcols v="6"/>
+        <fRowLwb v="0"/>
+        <fColLwb v="0"/>
+        <fNelems v="36"/>
+        <fNrowIndex v="0"/>
+        <fTol v="2.220446e-16"/>
+      </TMatrixTBase_double_>
+      <Array>
+        <Double_t v="0.000000e+00" cnt="6"/>
+      </Array>
+      <Array>
+        <Double_t v="1.966363e+03"/>
+        <Double_t v="-5.751249e+00"/>
+        <Double_t v="-3.471806e+00"/>
+        <Double_t v="5.689941e-02"/>
+        <Double_t v="-9.513152e-02"/>
+      </Array>
+      <Array>
+        <Double_t v="1.684427e-02"/>
+        <Double_t v="8.884082e-03"/>
+        <Double_t v="-1.637341e-04"/>
+        <Double_t v="2.530117e-04"/>
+      </Array>
+      <Array>
+        <Double_t v="3.017233e+02"/>
+        <Double_t v="4.316519e-02"/>
+        <Double_t v="-2.541501e-01"/>
+      </Array>
+      <Array>
+        <Double_t v="5.801667e-04"/>
+        <Double_t v="-8.935399e-05"/>
+      </Array>
+      <Array>
+        <Double_t v="5.612804e-04"/>
+      </Array>
+    </Object>
+  </XmlKey>
+  <StreamerInfos>
+    <TStreamerInfo name="TMatrixTBase&lt;double&gt;" title="" v="9" classversion="5" canoptimize="true" checksum="-1961180639">
+      <TStreamerBase name="TObject" title="Basic ROOT object" v="3" type="66" typename="BASE" size="16" baseversion="1" basechecksum="-1877229523"/>
+      <TStreamerBasicType name="fNrows" title="number of rows" v="2" type="3" typename="int" size="4"/>
+      <TStreamerBasicType name="fNcols" title="number of columns" v="2" type="3" typename="int" size="4"/>
+      <TStreamerBasicType name="fRowLwb" title="lower bound of the row index" v="2" type="3" typename="int" size="4"/>
+      <TStreamerBasicType name="fColLwb" title="lower bound of the col index" v="2" type="3" typename="int" size="4"/>
+      <TStreamerBasicType name="fNelems" title="number of elements in matrix" v="2" type="3" typename="int" size="4"/>
+      <TStreamerBasicType name="fNrowIndex" title="length of row index array (= fNrows+1) wich is only used for sparse matrices" v="2" type="3" typename="int" size="4"/>
+      <TStreamerBasicType name="fTol" title="sqrt(epsilon); epsilon is smallest number number so that  1+epsilon &gt; 1" v="2" type="8" typename="double" size="8"/>
+    </TStreamerInfo>
+  </StreamerInfos>
+</root>
