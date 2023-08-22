@@ -58,20 +58,33 @@ void WriteOutput::initialiseExcelOutput(TString output,TString gate1, TString ga
 
 void WriteOutput::writeRootOutputFile(TFile *file, TH1F *Raw, TH1F *Background1, TH1F *Background2, TH1F *substractedSpectrum, TH1F *BackgroundSubstactedTotal){
 	TString title="";
+	TDirectory* dir;
+	dir=file->mkdir("Raw"," ",true);
+	file->cd("Raw");
 	title.Append(Raw->GetTitle());
-	file->WriteObject(Raw, title.Data());
+	dir->WriteObject(Raw, title.Data());
+	file->cd("..");
+	dir=file->mkdir("Backgrounds"," ",true);
+	file->cd("Backgrounds");
 	title="";
 	title.Append(Background1->GetTitle());
-	file->WriteObject(Background1, title.Data());
+	dir->WriteObject(Background1, title.Data());
 	title="";
 	title.Append(Background2->GetTitle());
-	file->WriteObject(Background2, title.Data());
+	dir->WriteObject(Background2, title.Data());
 	title="";
+	file->cd("..");
+	dir=file->mkdir("Substracted spectrum"," ",true);
+	file->cd("Substracted spectrum");
 	title.Append(substractedSpectrum->GetTitle());
-	file->WriteObject(substractedSpectrum, title.Data());
+	dir->WriteObject(substractedSpectrum, title.Data());
+	file->cd("..");
+	dir=file->mkdir("Result"," ",true);
+	file->cd("Result");
 	title="";
 	title.Append(BackgroundSubstactedTotal->GetTitle());
-	file->WriteObject(BackgroundSubstactedTotal, title.Data());
+	dir->WriteObject(BackgroundSubstactedTotal, title.Data());
+	file->cd("..");
 };
 
 

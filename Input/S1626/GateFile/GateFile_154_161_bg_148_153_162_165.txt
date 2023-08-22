@@ -1,0 +1,7 @@
+GateOnAxis: x
+GateLow: 154
+GateHigh: 160
+BackgroundLow_1: 151
+BackgroundHigh_1: 154
+BackgroundLow_2: 162
+BackgroundHigh_2: 165

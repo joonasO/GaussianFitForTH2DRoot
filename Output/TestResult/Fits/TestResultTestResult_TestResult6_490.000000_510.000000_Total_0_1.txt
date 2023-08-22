@@ -1,0 +1,14 @@
+TestResult_TestResult6_490.000000_510.000000_Total_0_1
+../Output/TestResult/Fits/TestResultTestResult_TestResult6_490.000000_510.000000_Total_0_1.txt
+Chi2:48.9716
+Constant: 42.4321  Error: 35087.4
+Mean: 537.1  Error: 2.98777
+Sigma: 1.25  Error: 1.12041
+FWHM: 2.94353  Error: 2.63837
+Peak calculated integral:132.952 Error: 109939
+Peak plus background numerical integral: 923.489 Error: 43.345
+Background integral: 923.489 Error: 43.345
+Peak integral: 0 Error: 61.2991
+Total peak integral: 20.7543 Error: 63.5496
+Total function integral: 944.244 Error: 46.4732
+Histogram integral 1053.11

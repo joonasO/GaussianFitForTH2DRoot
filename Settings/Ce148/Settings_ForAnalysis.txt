@@ -1,0 +1,7 @@
+Debug.Mode: true
+Output_File_Name: 148CeAnalysisResult
+Input_Root_File_Name: S1626/SumOfAll.root
+Output_Root_File_Name: S1626/148CeAnalysisResult.root
+Matrix_Histogram_Name: GammaGamma2Dmatrix_50ns_2D_E_Matrix
+Matrix_Peak_File: S1626/PeakFile/GammaPeaks_GammaGate_158.txt
+Matrix_Gate_File: S1626/GateFile/GateFile_154_161_bg_148_153_162_165.txt

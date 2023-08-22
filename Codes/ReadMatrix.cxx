@@ -216,6 +216,7 @@ void ReadMatrix::createHistogram(TH2F *matrix, TString axis, TString gate1Text,T
       factor2=(Double_t)(-((background4-background3)/((background2-background1)+(background4-background3)))*(gate2-gate1)/((background2-background1)+(background4-background3)));
       histogram->Add(backgroundHistogram1,factor1);
       histogram->Add(backgroundHistogram2,factor2);
+      cout<<"Substracted"<<"\n";
       substractedHistogram=(TH1F *)histogram->Clone();
       substractedHistogram->Add(histogramTotal,-1);
       substractedHistogram->Scale(-1);
@@ -253,6 +254,7 @@ void ReadMatrix::createHistogram(TH2F *matrix, TString axis, TString gate1Text,T
       title.Append("_");
       number.Form("%0.f",background4);
       title.Append(number);
+      cout<<"Histogram ready"<<"\n";
       histogram->SetNameTitle(title.Data(),title.Data());
     }
   }

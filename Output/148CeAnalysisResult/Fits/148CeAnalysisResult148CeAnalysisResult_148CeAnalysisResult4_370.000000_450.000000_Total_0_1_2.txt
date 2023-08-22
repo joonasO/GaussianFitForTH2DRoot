@@ -1,0 +1,14 @@
+148CeAnalysisResult_148CeAnalysisResult4_370.000000_450.000000_Total_0_1_2
+../Output/148CeAnalysisResult/Fits/148CeAnalysisResult148CeAnalysisResult_148CeAnalysisResult4_370.000000_450.000000_Total_0_1_2.txt
+Chi2:60658
+Constant: 13802.3  Error: 9.59234e+06
+Mean: 537.1  Error: 2.98777
+Sigma: 1.25  Error: 1.12041
+FWHM: 2.94353  Error: 2.63837
+Peak calculated integral:43246.5 Error: 3.00556e+07
+Peak plus background numerical integral: 1.26016e+06 Error: 1577.69
+Background integral: 1.26016e+06 Error: 1577.69
+Peak integral: 0 Error: 2231.19
+Total peak integral: 8.34698e-07 Error: 2231.19
+Total function integral: 1.26016e+06 Error: 1577.69
+Histogram integral 1.33963e+06
